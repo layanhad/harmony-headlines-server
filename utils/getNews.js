@@ -1,5 +1,6 @@
-const API_KEY = require('./constants');
-const API_URL = require('./constants');
+const { API_URL, API_KEY } = require('./constants');
+console.log('API_URL:', API_URL);
+console.log('API_KEY:', API_KEY);
 const getNews = async () => {
     const params = {
         languages: 'en',
@@ -9,7 +10,7 @@ const getNews = async () => {
         limit: 10
     };
     const urlParams = new URLSearchParams(params).toString();
-    const res = await fetch(`${API_URL.toString()}?${urlParams}`);
+    const res = await fetch(`${API_URL}?${urlParams}`);
     const res_1 = await res.json();
     return res_1;
 }
